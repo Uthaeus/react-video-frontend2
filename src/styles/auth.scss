@@ -1,0 +1,31 @@
+
+.auth-container {
+    width: 60%;
+    min-height: 400px;
+    margin: 3rem auto;
+    background-color: white;
+    border-radius: 5px;
+
+    .auth-title {
+        font-size: 2em;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid black;
+        color: blue;
+    }
+
+    .auth-submit-btn {
+        padding: 0 3rem;
+        border-radius: 3px;
+        background-color: blue;
+        color: white;
+        box-shadow: 2px 2px 2px grey;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            background-color: green;
+            transform: scale(1.03);
+            box-shadow: 4px 4px 4px grey;
+        }
+    }
+}

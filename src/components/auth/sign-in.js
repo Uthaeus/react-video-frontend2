@@ -8,22 +8,23 @@ function SignIn() {
     function submitHandler(data) {}
 
     return (
-        <div className="container">
+        <div className="auth-container">
+            <h1 className="auth-title">Sign In</h1>
             <form onSubmit={handleSubmit(submitHandler)}>
-                <div className="form-group">
+                <div className="form-group mb-2">
                     <label htmlFor="email">Email</label>
                     <input type='email' className="form-control" {...register("email", { required: true })} />
                     {errors?.email && <span className="text-danger">This field is required</span>}
                 </div>
 
-                <div className="form-group">
+                <div className="form-group mb-3">
                     <label htmlFor="password">Password</label>
                     <input type='password' className="form-control" {...register("password", { required: true })} />
                     {errors?.password && <span className="text-danger">This field is required</span>}
                 </div>
 
-                <div className="form-group">
-                    <button type="submit" className="btn btn-primary">Sign In</button>
+                <div className="form-group mb-2">
+                    <button type="submit" className="auth-submit-btn">Sign In</button>
                 </div>
             </form>
         </div>
