@@ -4,6 +4,8 @@ import RootLayout from './components/root-layout';
 import Homepage from './pages/homepage';
 import AboutPage from './pages/aboutpage';
 import ContactPage from './pages/contactpage';
+import SignUp from './components/auth/sign-up';
+import SignIn from './components/auth/sign-in';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +23,14 @@ const router = createBrowserRouter([
       {
         path: '/contact',
         element: <ContactPage />
+      },
+      {
+        path: 'sign-up',
+        element: <SignUp />
+      },
+      {
+        path: 'sign-in',
+        element: <SignIn />
       }
     ]
   }

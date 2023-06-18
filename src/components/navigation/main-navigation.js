@@ -17,7 +17,9 @@ function MainNavigation() {
             </div>
 
             <div className="main-nav-auth-wrapper">
-                auth
+                <NavLink to="/sign-up" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>register</NavLink>
+
+                <NavLink to="/sign-in" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>login</NavLink>
             </div>
         </div>
     );
