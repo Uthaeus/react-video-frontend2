@@ -2,32 +2,31 @@
 .auth-container {
     width: 60%;
     min-height: 200px;
-    margin: 3rem auto;
-    background-color: white;
+    margin: 5rem auto;
+    background-color: $blue;
     border-radius: 5px;
 
     .auth-title {
         font-size: 2em;
         padding: 2rem;
-        margin-bottom: 2rem;
-        color: blue;
+        color: $light-tan;
     }
 
     .auth-form {
         width: 60%;
-        margin: 2rem auto;
+        margin: 0 auto;
+        margin-bottom: 4rem;
     }
 
     .auth-submit-btn {
         padding: 0 3rem;
         border-radius: 3px;
-        background-color: blue;
+        background-color: $dark-blue;
         color: white;
         box-shadow: 2px 2px 2px grey;
         transition: all 0.3s ease-in-out;
 
         &:hover {
-            background-color: green;
             transform: scale(1.03);
             box-shadow: 4px 4px 4px grey;
         }
