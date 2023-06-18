@@ -1,0 +1,11 @@
+@import 'main-navigation';
+
+.root-layout-container {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    background-color: grey;
+}
+
+// Homepage 
+
