@@ -1,13 +1,49 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+
+import { UserContext } from "../../store/user-context";
 
 function SignUp() {
     const { register, handleSubmit, errors } = useForm();
     const navigate = useNavigate();
+    const { loginUser } = useContext(UserContext);
 
     function submitHandler(data) {
         console.log(data);
-        //navigate("/login");
+        if (data.password !== data.password_confirmation) {
+            alert("Passwords do not match");
+            return;
+        }
+        
+        let userData = {
+            user: {
+                username: data.username,
+                email: data.email,
+                password: data.password
+            }
+        };
+
+        fetch("http://localhost:4000/users", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(userData),
+        })
+        .then((response) => {
+            if (response.ok) {
+                localStorage.setItem("practice-token", response.headers.get("Authorization").split(" ")[1]);
+                return response.json();
+            }
+            throw new Error("Something went wrong");
+        })
+        .then((data) => {
+            console.log('signup data: ', data);
+            loginUser(data.data);
+            navigate("/");
+        })
+        .catch((error) => console.log("signup error: ", error.message));
     }
 
     return (

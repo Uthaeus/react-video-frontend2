@@ -1,11 +1,35 @@
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+
+import { UserContext } from "../../store/user-context";
 
 function MainNavigation() {
+    const { user, logoutUser } = useContext(UserContext);
+
+    function logoutHandler() {
+        fetch('http://localhost:4000/users/sign_out', {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('practice-token')}`
+            },
+        })
+        .then(response => {
+            if (response.ok) {
+                localStorage.removeItem('practice-token');
+                logoutUser();
+                return response.json();
+            }
+            throw new Error('Something went wrong');
+        })
+        .catch(error => console.log('logout error: ', error.message));
+        
+    }
 
     return (
         <div className="main-navigation-container">
             <div className="main-nav-logo-wrapper">
-                logo/user
+                {user ? <p>{user.username}</p> : 'Your Logo Here'}
+                
             </div>
 
             <div className="main-nav-links-wrapper">
@@ -17,9 +41,13 @@ function MainNavigation() {
             </div>
 
             <div className="main-nav-auth-wrapper">
-                <NavLink to="/sign-up" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>register</NavLink>
+                {user ? <p onClick={logoutHandler} className="nav-link">Logout</p> :
+                <>
+                    <NavLink to="/sign-up" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>register</NavLink>
 
-                <NavLink to="/sign-in" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>login</NavLink>
+                    <NavLink to="/sign-in" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>login</NavLink>
+                </>
+                }
             </div>
         </div>
     );
