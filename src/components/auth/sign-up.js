@@ -13,7 +13,7 @@ function SignUp() {
     return (
         <div className="auth-container">
             <h1 className="auth-title">Sign Up</h1>
-            <form onSubmit={handleSubmit(submitHandler)}>
+            <form onSubmit={handleSubmit(submitHandler)} className="auth-form">
                 <div className="form-group mb-2">
                     <label htmlFor="username">Username</label>
                     <input type='text' className="form-control" {...register("username", { required: true })} />

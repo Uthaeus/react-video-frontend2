@@ -1,7 +1,7 @@
 
 .auth-container {
     width: 60%;
-    min-height: 400px;
+    min-height: 200px;
     margin: 3rem auto;
     background-color: white;
     border-radius: 5px;
@@ -10,8 +10,12 @@
         font-size: 2em;
         padding: 2rem;
         margin-bottom: 2rem;
-        border-bottom: 1px solid black;
         color: blue;
+    }
+
+    .auth-form {
+        width: 60%;
+        margin: 2rem auto;
     }
 
     .auth-submit-btn {

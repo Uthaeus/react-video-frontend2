@@ -10,7 +10,7 @@ function SignIn() {
     return (
         <div className="auth-container">
             <h1 className="auth-title">Sign In</h1>
-            <form onSubmit={handleSubmit(submitHandler)}>
+            <form onSubmit={handleSubmit(submitHandler)} className="auth-form">
                 <div className="form-group mb-2">
                     <label htmlFor="email">Email</label>
                     <input type='email' className="form-control" {...register("email", { required: true })} />
