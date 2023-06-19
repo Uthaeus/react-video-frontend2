@@ -34,7 +34,7 @@ function PostDetail() {
             if (!res.ok) {
                 throw Error('Could not delete that resource');
             }
-            navigate('/posts');
+            navigate('/');
             return res.json();
         })
         .catch(err => console.log('post delete error: ', err));
