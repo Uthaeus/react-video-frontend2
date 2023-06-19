@@ -6,6 +6,7 @@ function NewPost() {
     return (
         <div className="posts-container">
             <h1 className="posts-title">New Post</h1>
+            
             <PostForm />
 
             <div className="posts-actions">
