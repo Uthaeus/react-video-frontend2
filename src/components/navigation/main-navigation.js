@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 
 import { UserContext } from "../../store/user-context";
+import NavUserItem from "./nav-user-item";
 
 function MainNavigation() {
     const { user, logoutUser } = useContext(UserContext);
@@ -22,14 +23,12 @@ function MainNavigation() {
             throw new Error('Something went wrong');
         })
         .catch(error => console.log('logout error: ', error.message));
-        
     }
 
     return (
         <div className="main-navigation-container">
             <div className="main-nav-logo-wrapper">
-                {user ? <p>{user.username}</p> : 'Your Logo Here'}
-                
+                {user ? <NavUserItem user={user} /> : 'Your Logo Here'}
             </div>
 
             <div className="main-nav-links-wrapper">
