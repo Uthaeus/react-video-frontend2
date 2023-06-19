@@ -10,11 +10,13 @@ import UserPage from './pages/userpage';
 import NewPost from './components/posts/new-post';
 import PostDetail from './components/posts/post-detail';
 import EditPost from './components/posts/edit-post';
+import ErrorPage from './components/error/errorpage';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <RootLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,

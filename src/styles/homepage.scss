@@ -46,6 +46,18 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        .homepage-new-post {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: $dark-brown;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                color: $brown;
+                transform: scale(1.1);
+            }
+        }
     }
 }
 

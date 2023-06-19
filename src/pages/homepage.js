@@ -31,6 +31,7 @@ function Homepage() {
         </div>
 
         <div className="homepage-posts">
+            {user && <Link to="/posts/new" className="homepage-new-post">Create New Post</Link>}
             {posts.map((post) => <HomepagePostItem key={post.id} post={post} user={user} />)}
         </div>
 
