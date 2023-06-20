@@ -9,27 +9,29 @@ function SignUp() {
     const navigate = useNavigate();
     const { loginUser } = useContext(UserContext);
 
+    function buildForm(data) {
+        let formData = new FormData();
+        formData.append("user[username]", data.username);
+        formData.append("user[email]", data.email);
+        formData.append("user[password]", data.password);
+
+        if (data.avatar[0]) {
+            formData.append("user[avatar]", data.avatar[0]);
+        }
+
+        return formData;
+    }
+
     function submitHandler(data) {
         console.log(data);
         if (data.password !== data.password_confirmation) {
             alert("Passwords do not match");
             return;
         }
-        
-        let userData = {
-            user: {
-                username: data.username,
-                email: data.email,
-                password: data.password
-            }
-        };
 
         fetch("http://localhost:4000/users", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(userData),
+            body: buildForm(data),
         })
         .then((response) => {
             if (response.ok) {
@@ -54,6 +56,11 @@ function SignUp() {
                     <label htmlFor="username">Username</label>
                     <input type='text' className="form-control" {...register("username", { required: true })} />
                     {errors?.username && <span className="text-danger">This field is required</span>}
+                </div>
+
+                <div className="form-group mb-2">
+                    <label htmlFor="avatar">Avatar</label>
+                    <input type='file' className="form-control" {...register("avatar")} />
                 </div>
 
                 <div className="form-group mb-2">
