@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import { UserContext } from '../store/user-context';
+import BlogSidebar from '../components/blogs/blog-sidebar';
 
 function Blogs() {
     const [blogs, setBlogs] = useState([]);
@@ -21,17 +22,33 @@ function Blogs() {
     //         });
     // }, []);
 
-    if (isLoading) {
-        return (
-            <div className="loading">
-                <h1>Loading...</h1>
-            </div>
-        );
-    }
+    // if (isLoading) {
+    //     return (
+    //         <div className="loading">
+    //             <h1>Loading...</h1>
+    //         </div>
+    //     );
+    // }
 
     return (
         <div className="blogs-container">
-            <h1>Blogs</h1>
+            <div className='blogs-header'>
+                <h1>Blogs</h1>
+            </div>
+
+            <div className="blogs-content">
+                <div className="blogs-list">
+                    blogs list
+                </div>
+
+                <div className="blogs-sidebar">
+                    <BlogSidebar />
+                </div>
+            </div>
+
+            <div className="blogs-footer">
+                <h1>Footer</h1>
+            </div>
         </div>
     );
 }

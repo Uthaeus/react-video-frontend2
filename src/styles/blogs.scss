@@ -1,0 +1,102 @@
+
+.blogs-container {
+    width: 100%;
+    min-height: calc(100vh - 60px);
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    .blogs-header {
+        width: 80%;
+        height: 200px;
+        margin: 2rem auto;
+        border: 1px solid $light-grey;
+        border-radius: 8px;
+        padding: 1rem;
+        background-color: $dark-brown;
+    }
+
+    .blogs-content {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+
+        .blogs-list {
+            width: 90%;
+            margin: 1rem auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blogs-sidebar {
+            width: 100%;
+        }
+    }
+
+    .blogs-footer {
+        width: 100%;
+        padding: 1rem;
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+    }
+}
+
+// Blog Sidebar 
+
+.blog-sidebar {
+    width: 90%;
+    min-height: 400px;
+    margin: 1rem auto;
+    padding: 1rem;
+    background-color: $light-grey;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+
+    .blog-sidebar-title {
+        font-size: 1.5em;
+        color: $dark-blue;
+    }
+
+    .blog-sidebar-categories {
+        display: flex;
+        flex-direction: column;
+        margin-left: 1rem;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid $light-blue;
+
+        .blog-sidebar-category {
+            font-size: 1.2em;
+            color: $blue;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                color: $light-blue;
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    .blog-sidebar-socials {
+        display: flex;
+        flex-direction: column;
+        margin-left: 1rem;
+        margin-bottom: 2rem;
+
+        .blog-sidebar-social {
+            font-size: 1.2em;
+            text-decoration: none;
+            color: $blue;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                color: $light-blue;
+                transform: scale(1.1);
+            }
+        }
+    }
+}

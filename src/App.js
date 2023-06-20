@@ -3,7 +3,7 @@ import { useEffect, useContext } from 'react';
 
 import { UserContext } from './store/user-context';
 
-import RootLayout from './components/root-layout';
+import RootLayout from './components/layouts/root-layout';
 import Homepage from './pages/homepage';
 import AboutPage from './pages/aboutpage';
 import ContactPage from './pages/contactpage';
