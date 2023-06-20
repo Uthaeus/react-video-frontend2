@@ -16,6 +16,9 @@ import EditPost from './components/posts/edit-post';
 import ErrorPage from './components/error/errorpage';
 import BlogLayout from './components/layouts/blog-layout';
 import Blogs from './pages/blogs';
+import BlogDetail from './components/blogs/blog-detail';
+import EditBlog from './components/blogs/edit-blog';
+import NewBlog from './components/blogs/new-blog';
 
 const router = createBrowserRouter([
   {
@@ -69,6 +72,18 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Blogs />
+      },
+      {
+        path: '/blogs/:id',
+        element: <BlogDetail />
+      },
+      {
+        path: '/blogs/:id/edit',
+        element: <EditBlog />
+      },
+      {
+        path: '/blogs/new',
+        element: <NewBlog />
       }
     ]
   }

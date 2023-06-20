@@ -38,6 +38,7 @@ function Blogs() {
 
             <div className="blogs-content">
                 <div className="blogs-list">
+                    {user && <Link to='/blogs/new' className='new-blog-link'>New Blog</Link>}
                     blogs list
                 </div>
 

@@ -1,8 +1,10 @@
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
+import { useNavigate } from "react-router";
 
 function BlogForm({ blog }) {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (blog) {
@@ -10,8 +12,36 @@ function BlogForm({ blog }) {
         }
     }, [blog, reset]);
 
+    function buildForm(data) {
+        const formData = new FormData();
+
+        formData.append('blog[title]', data.title);
+        formData.append('blog[body]', data.body);
+
+        if (data.image && data.image[0]) {
+            formData.append('blog[image]', data.image[0]);
+        }
+
+        return formData;
+    }
+
     function submitHandler(data) {
         console.log(data);
+
+        fetch('http://localhost:4000/blogs', {
+            method: 'POST',
+            body: buildForm(data),
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('practice-token')
+            }
+        })
+        .then(res => {
+            if (!res.ok) {
+                throw Error('Could not create blog');
+            }
+            navigate('/blogs');
+            return res.json();
+        })
     }
 
     return (
