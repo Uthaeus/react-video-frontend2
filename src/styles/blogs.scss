@@ -11,10 +11,10 @@
         width: 80%;
         height: 200px;
         margin: 2rem auto;
-        border: 1px solid $light-grey;
         border-radius: 8px;
         padding: 1rem;
-        background-color: $dark-brown;
+        background-color: $blog-dark-blue;
+        box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.5);
     }
 
     .blogs-content {
@@ -50,14 +50,14 @@
     min-height: 400px;
     margin: 1rem auto;
     padding: 1rem;
-    background-color: $light-grey;
+    background-color: $blog-white;
     border-radius: 6px;
     display: flex;
     flex-direction: column;
 
     .blog-sidebar-title {
         font-size: 1.5em;
-        color: $dark-blue;
+        color: $blog-dark-blue;
     }
 
     .blog-sidebar-categories {
@@ -65,16 +65,16 @@
         flex-direction: column;
         margin-left: 1rem;
         margin-bottom: 2rem;
-        border-bottom: 1px solid $light-blue;
+        border-bottom: 1px solid $blog-light-blue;
 
         .blog-sidebar-category {
             font-size: 1.2em;
-            color: $blue;
+            color: $blog-blue;
             padding: 0.5rem 0;
             transition: all 0.3s ease-in-out;
 
             &:hover {
-                color: $light-blue;
+                color: $blog-light-blue;
                 transform: scale(1.1);
             }
         }

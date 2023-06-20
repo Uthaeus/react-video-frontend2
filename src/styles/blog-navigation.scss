@@ -2,7 +2,7 @@
 .blog-navigation-container {
     width: 100%;
     padding: 0 1rem;
-    background-color: $dark-blue;
+    background-color: $blog-dark-blue;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
 
@@ -26,21 +26,21 @@
 
     .blog-nav-link {
         font-size: 1.1em;
-        color: $light-tan;
+        color: $blog-white;
         text-decoration: none;
         margin: 0 1rem;
         padding: 0.5rem 0;
         transition: all 0.3s ease-in-out;
 
         &:hover {
-            color: $light-grey;
+            color: $blog-light-blue;
             transform: scale(1.1);
         }
     }
 
     .link-active {
-        color: $light-grey;
+        color: $blog-light-blue;
         transform: scale(1.1);
-        border-bottom: 1px solid $light-grey;
+        border-bottom: 1px solid $blog-light-blue;
     }
 }
