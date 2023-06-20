@@ -1,6 +1,6 @@
-import { useEffect, useContext } from "react";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { UserContext } from "../../store/user-context";
 
@@ -23,7 +23,7 @@ function EditUser() {
     }
 
     function submitHandler(data) {
-        fetch(`http://localhost:4000/users/${user.id}`, {
+        fetch(`http://localhost:4000/users/`, {
             method: "PUT",
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("practice-token")}`,
@@ -75,14 +75,14 @@ function EditUser() {
                 {errors?.password_confirmation && <span className="text-danger">This field is required</span>}
             </div>
 
-           <div className="form-group mb-2">
+           <div className="form-group mb-4">
                 <label htmlFor="current_password">Current Password</label>
                 <input type='password' className="form-control" {...register("current_password", { required: true })} />
                 {errors?.current_password && <span className="text-danger">This field is required</span>}
            </div>
 
             <div className="form-group mb-2">
-                <button type="submit" className="btn btn-primary">Update</button>
+                <button type="submit" className="edit-user-form-btn">Update</button>
             </div>
         </form>
     );

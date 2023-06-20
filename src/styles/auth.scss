@@ -32,3 +32,22 @@
         }
     }
 }
+
+.edit-user-form {
+    width: 90%;
+    margin: 3rem auto;
+
+    .edit-user-form-btn {
+        padding: 0 3rem;
+        border-radius: 3px;
+        background-color: $dark-blue;
+        color: white;
+        box-shadow: 2px 2px 2px grey;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            transform: scale(1.03);
+            box-shadow: 4px 4px 4px grey;
+        }
+    }
+}
