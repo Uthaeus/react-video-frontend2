@@ -14,6 +14,8 @@ import NewPost from './components/posts/new-post';
 import PostDetail from './components/posts/post-detail';
 import EditPost from './components/posts/edit-post';
 import ErrorPage from './components/error/errorpage';
+import BlogLayout from './components/layouts/blog-layout';
+import Blogs from './pages/blogs';
 
 const router = createBrowserRouter([
   {
@@ -56,6 +58,17 @@ const router = createBrowserRouter([
       {
         path: '/posts/:id/edit',
         element: <EditPost />
+      }
+    ]
+  },
+  {
+    path: '/blogs',
+    element: <BlogLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <Blogs />
       }
     ]
   }
