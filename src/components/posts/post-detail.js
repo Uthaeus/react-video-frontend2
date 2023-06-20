@@ -53,7 +53,7 @@ function PostDetail() {
             <div className="post-detail-description">{post.description}</div>
 
             <div className="post-detail-actions">
-                {user.id === post.user_id && (
+                {user?.id === post.user_id && (
                     <>
                         <Link to={`/posts/${post.id}/edit`} className="post-detail-action">edit</Link>
                         <Link onClick={postDeleteHandler} className="post-detail-action">delete</Link>

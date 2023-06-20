@@ -24,15 +24,23 @@ function Homepage() {
 
   return (
     <div className="homepage">
-        <div className="homepage-header">
-          <h1 className="homepage-title">Welcome, check out some videos</h1>
-          <p className="homepage-subtitle">some sort of quote here maybe</p>
-          {user && <h3 className="homepage-hello">Hello, <Link to={`/userpage`} className="homepage-username-link">{user.username}</Link></h3>}
-        </div>
+        
 
         <div className="homepage-posts">
-            {user && <Link to="/posts/new" className="homepage-new-post">Create New Post</Link>}
+            
             {posts.map((post) => <HomepagePostItem key={post.id} post={post} user={user} />)}
+        </div>
+
+        <div className="homepage-header">
+          <h1 className="homepage-title">Welcome, check out some videos</h1>
+          <p className="homepage-subtitle">“It is hard to fail but it is worse never to have tried to succeed.” —Theodore Roosevelt</p>
+          {user && (
+            <>
+              <h3 className="homepage-hello">Hello, <Link to={`/userpage`} className="homepage-username-link">{user.username}</Link></h3>
+              <Link to="/posts/new" className="homepage-new-post">Create New Post</Link>
+            </>
+          )}
+          
         </div>
 
 

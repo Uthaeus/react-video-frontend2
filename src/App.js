@@ -1,4 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { useEffect, useContext } from 'react';
+
+import { UserContext } from './store/user-context';
 
 import RootLayout from './components/root-layout';
 import Homepage from './pages/homepage';
@@ -59,6 +62,31 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const { user, loginUser } = useContext(UserContext);
+
+  useEffect(() => {
+    let token = localStorage.getItem('practice-token');
+
+    if (token && !user) {
+      fetch('http://localhost:4000/check_user', {
+        headers: {
+          'Authorization': 'Bearer ' + token
+        }
+      })
+      .then(res => {
+        if (!res.ok) {
+          throw Error('Could not fetch data for that resource');
+        }
+        return res.json();
+      })
+      .then(data => {
+        console.log('user detail data: ', data)
+        loginUser(data);
+      })
+      .catch(err => console.log('user detail error: ', err));
+    }
+  }, []);
+
   return <RouterProvider router={router} />;
 }
 

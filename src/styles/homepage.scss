@@ -3,37 +3,65 @@
     width: 100%;
     height: 100vh;
     overflow: auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
 
     .homepage-header {
         width: 90%;
         margin: 2rem auto;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        display: flex;
+        flex-direction: column;
+
+        .homepage-new-post {
+            align-self: flex-end;
+            margin-top: 1rem;
+            font-size: 1.4em;
+            font-weight: 600;
+            color: $light-blue;
+            background-color: $dark-brown;
+            border: 1px solid $brown;
+            border-radius: 3px;
+            padding: 0 3rem;
+            text-decoration: none;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.198);
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                background-color: $brown;
+                color: $dark-blue;
+                transform: scale(1.06);
+                box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.198);
+            }
+        }
 
         .homepage-title {
-            font-size: 2.2em;
-            font-weight: 600;
-            color: $dark-brown;
+            font-size: 1.8em;
+            color: $dark-blue;
+            text-align: center;
         }
 
         .homepage-subtitle {
             font-size: 1.2em;
-            color: $brown;
+            color: $light-tan;
+            text-align: center;
+            margin-bottom: 4rem;
         }
 
         .homepage-hello {
-            color: $sienna;
+            color: $light-grey;
             text-align: right;
         }
 
         .homepage-username-link {
+            margin-left: 2rem;
+            padding-bottom: 1rem;
             font-size: 1.2em;
-            color: $light-blue;
+            color: #161616;
             text-decoration: none;
             transition: all 0.3s ease-in-out;
 
             &:hover {
-                color: $blue;
+                color: $dark-blue;
                 transform: scale(1.1);
             }
         }
@@ -47,45 +75,57 @@
         flex-direction: column;
         align-items: center;
 
-        .homepage-new-post {
-            font-size: 1.4em;
-            font-weight: 600;
-            color: $dark-brown;
-            transition: all 0.3s ease-in-out;
-
-            &:hover {
-                color: $brown;
-                transform: scale(1.1);
-            }
-        }
+        
     }
 }
 
 .homepage-post-item {
     width: 100%;
-    height: 250px;
+    height: 290px;
     margin: 1rem 0;
-    padding: 1rem;
-    border-bottom: 1px solid $light-grey;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $light-blue;
+    display: flex;
+    flex-direction: row;
+
+    .homepage-post-item-image {
+        
+    }
 
     .homepage-post-item-content {
-        width: 90%;
-        margin: 0 auto;
+        width: 60%;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        align-items: flex-end;
+        padding: 0 1rem;
 
         .homepage-post-item-title {
-            font-size: 1.6em;
+            padding: 1rem 0;
+            font-size: 2em;
             font-weight: 600;
             color: $dark-brown;
             text-decoration: none;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                color: $dark-blue;
+                transform: scale(1.1);
+                border-bottom: 1px solid $dark-blue;
+            }
+        }
+
+        .homepage-post-item-author {
+            font-size: 1.4em;
+            color: $dark-blue;
         }
 
         .homepage-post-item-description {
-            color: $brown;
+            display: inline;
+            width: 90%;
+            padding: 0 1rem;
+            justify-self: flex-end;
+            word-wrap: break-word;
+            border-left: 1px solid $light-blue;
         }
     }
 }

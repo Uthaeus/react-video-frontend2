@@ -28,7 +28,7 @@ function EditPost() {
         <PostForm post={post} />
 
         <div className="posts-actions">
-            <Link to="/posts" className="posts-action">back to posts</Link>
+            <Link to="/" className="posts-action">back to posts</Link>
         </div>
     </div>
   );
