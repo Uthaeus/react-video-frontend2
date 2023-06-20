@@ -1,13 +1,21 @@
 
 .blog-navigation-container {
     width: 100%;
+    height: 75px;
     padding: 0 1rem;
-    background-color: $blog-dark-blue;
+    border-bottom: 2px solid $blog-dark-blue;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
 
     .blog-navigation-header {
         width: 100%;
+        display: flex;
+        align-items: center;
+
+        .blog-navigation-title {
+            font-size: 1.5em;
+            color: $blog-blue;
+        }
     }
 
     .blog-navigation-links {
@@ -26,7 +34,7 @@
 
     .blog-nav-link {
         font-size: 1.1em;
-        color: $blog-white;
+        color: $blog-dark-blue;
         text-decoration: none;
         margin: 0 1rem;
         padding: 0.5rem 0;
@@ -42,5 +50,37 @@
         color: $blog-light-blue;
         transform: scale(1.1);
         border-bottom: 1px solid $blog-light-blue;
+    }
+}
+
+// Blog User Item
+
+.blog-user-item-container {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        transform: scale(1.01);
+        box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .blog-user-item-header {
+        width: 70%;
+        padding-left: 1rem;
+
+        .blog-user-item-username {
+            font-size: 1.4em;
+            color: $blog-blue;
+        }
+    }
+
+    .blog-user-item-content {
+        width: 30%;
+        padding: 2px 0;
     }
 }

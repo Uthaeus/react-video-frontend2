@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 
 import { UserContext } from "../../store/user-context";
+import BlogUserItem from "./blog-user-item";
 
 function BlogNavigation() {
     const { user, logoutUser } = useContext(UserContext);
@@ -26,7 +27,7 @@ function BlogNavigation() {
     return (
         <div className="blog-navigation-container">
             <div className="blog-navigation-header">
-                <h1>Blog Navigation</h1>
+                {user ? <BlogUserItem user={user} /> : <h1 className="blog-navigation-title">Blog Navigation</h1>}
             </div>
 
             <div className="blog-navigation-links">
