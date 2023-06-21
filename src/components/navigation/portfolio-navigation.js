@@ -1,0 +1,70 @@
+import { useContext } from "react";
+import { NavLink } from "react-router-dom";
+
+import { UserContext } from "../../store/user-context";
+
+function PortfolioNavigation() {
+    const { user, logoutUser } = useContext(UserContext);
+
+    let navUser = user ? user.username : 'Guest User';
+
+    function logoutHandler() {
+        fetch('http://localhost:4000/users/sign_out', {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('practice-token')}`
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                logoutUser();
+                return response.json();
+            }
+        })
+        .catch(error => console.log('portfolio logout error', error));
+    }
+
+    return (
+        <div className="portfolio-navigation">
+            <div className="portfolio-navigation-content">
+                <div className="portfolio-navigation-socials">
+                    <a href='example.com' className='portfolio-social-link'>Facebook</a>
+                    <a href='example.com' className='portfolio-social-link'>Twitter</a>
+                    <a href='example.com' className='portfolio-social-link'>Instagram</a>
+                    <a href='example.com' className='portfolio-social-link'>LinkedIn</a>
+                    <a href='example.com' className='portfolio-social-link'>GitHub</a>
+                    <a href='example.com' className='portfolio-social-link'>YouTube</a> 
+                </div>
+
+                <div className="portfolio-navigation__links">
+                    <NavLink to="/" className={({isActive}) => isActive ? 'portfolio-link link-active' : 'portfolio-link'} end>Home</NavLink>
+
+                    <NavLink to="/about" className={({isActive}) => isActive ? 'portfolio-link link-active' : 'portfolio-link'}>About</NavLink>
+
+                    <NavLink to="/contact" className={({isActive}) => isActive ? 'portfolio-link link-active' : 'portfolio-link'}>Contact</NavLink>
+
+                    <NavLink to="/blogs" className={({isActive}) => isActive ? 'portfolio-link link-active' : 'portfolio-link'}>Blogs</NavLink>
+                </div>
+
+                <div className="portfolio-navigation__auth">
+                    {user ? (
+                        <NavLink onClick={logoutHandler} className='portfolio-link'>Logout</NavLink>
+                    ) : (
+                        <>
+                            <NavLink to="/sign-in" className={({isActive}) => isActive ? 'portfolio-link link-active' : 'portfolio-link'}>Login</NavLink>
+
+                            <NavLink to="/sign-up" className={({isActive}) => isActive ? 'portfolio-link link-active' : 'portfolio-link'}>Sign Up</NavLink>
+                        </>
+                    )}
+                </div>
+            </div>
+
+            <div className="portfolio-navigation-lead">
+                <p className="portfolio-navigation-lead__text">{navUser}</p>
+                <p>v</p>
+            </div>
+        </div>
+    );
+}
+
+export default PortfolioNavigation;
