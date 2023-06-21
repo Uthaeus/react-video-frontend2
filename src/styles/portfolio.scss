@@ -64,3 +64,114 @@
         }
     }
 }
+
+// Portfolio Item
+
+.portfolio-item {
+    width: 90%;
+    margin: 1rem auto;
+    padding: 2rem 1rem;
+    border-bottom: 1px solid $light-blue;
+
+    .portfolio-item-header {
+        width: 100%;
+
+        .portfolio-item-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: $blue;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                color: $dark-blue;
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    .portfolio-item-body {
+        width: 100%;
+    }
+
+    .portfolio-item-footer {
+        width: 100%;
+        padding: 0 1rem;
+        font-size: 0.8em;
+    }
+}
+
+// Portfolio Detail 
+
+.portfolio-detail {
+    width: 100%;
+    padding-top: 2rem;
+
+    .portfolio-detail-header {
+        width: 100%;
+        margin: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        font-size: 1.5rem;
+
+        .portfolio-detail-link {
+            margin: 0 1rem;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        .edit {
+            color: green;
+        }
+
+        .back {
+            color: $blog-dark-blue;
+        }
+
+        .delete {
+            color: $blog-red;
+        }
+    }
+
+    .portfolio-detail-body {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 2fr;
+
+        .portfolio-detail-image {
+            width: 100%;
+        }
+
+        .portfolio-detail-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+
+            .portfolio-detail-title {
+                font-size: 2.5rem;
+                font-weight: 700;
+                color: $dark-blue;
+            }
+
+            .portfolio-detail-description {
+                margin: 1rem 0;
+                font-size: 1.2rem;
+                font-weight: 400;
+                color: $dark-brown;
+            }
+        }
+
+        .portfolio-detail-comments-wrapper {
+            width: 90%;
+            margin: 1rem auto;
+            padding: 1rem;
+            border-left: 1px solid $light-blue;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

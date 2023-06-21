@@ -36,14 +36,30 @@ function PortfolioDetail() {
     return (
         <div className="portfolio-detail">
             <div className="portfolio-detail-header">
-                <Link to="/portfolio" className="portfolio-detail-back">Back To Portfolio</Link>
+                <Link to="/portfolio" className="portfolio-detail-link back">Back To Portfolio</Link>
 
                 {user?.role === 'site_admin' && (
                     <>
-                        <Link to={`/portfolio/${id}/edit`} className="portfolio-detail-edit">Edit</Link>
-                        <Link to="#" onClick={deleteHandler} className="portfolio-detail-delete">Delete</Link>
+                        <Link to={`/portfolio/${id}/edit`} className="portfolio-detail-link edit">Edit</Link>
+                        <Link to="#" onClick={deleteHandler} className="portfolio-detail-link delete">Delete</Link>
                     </>
                 )}
+            </div>
+
+            <div className="portfolio-detail-body">
+                <div className="portfolio-detail-image">
+                    <img src={`http://localhost:4000${portfolio.main_image?.url}`} alt={portfolio.title} width="100%" />
+                </div>
+
+                <div className="portfolio-detail-content">
+                    <h1 className="portfolio-detail-title">{portfolio.title}</h1>
+
+                    <p className="portfolio-detail-description">{portfolio.description}</p>
+                </div>
+
+                <div className="portfolio-detail-comments-wrapper">
+                    comments here 
+                </div>
             </div>
         </div>
     );
