@@ -39,6 +39,8 @@ function MainNavigation() {
                 <NavLink to="/contact" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>Contact</NavLink>
 
                 <NavLink to="/blogs" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>Blogs</NavLink>
+
+                <NavLink to="/portfolio" className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>Portfolio</NavLink>
             </div>
 
             <div className="main-nav-auth-wrapper">

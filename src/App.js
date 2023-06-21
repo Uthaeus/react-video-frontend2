@@ -19,6 +19,8 @@ import Blogs from './pages/blogs';
 import BlogDetail from './components/blogs/blog-detail';
 import EditBlog from './components/blogs/edit-blog';
 import NewBlog from './components/blogs/new-blog';
+import Portfolio from './pages/portfolio';
+import PortfolioLayout from './components/layouts/portfolio-layout';
 
 const router = createBrowserRouter([
   {
@@ -84,6 +86,17 @@ const router = createBrowserRouter([
       {
         path: '/blogs/new',
         element: <NewBlog />
+      }
+    ]
+  },
+  {
+    path: '/portfolio',
+    element: <PortfolioLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <Portfolio />
       }
     ]
   }
