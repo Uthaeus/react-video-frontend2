@@ -15,6 +15,14 @@ function BlogDetail() {
             });
     }, [id]);
 
+    if (!blog) {
+        return (
+            <div className="loading">
+                <h1>Loading...</h1>
+            </div>
+        );
+    }
+
     return (
         <div className="blog-detail">
             <h1>Blog Detail</h1>

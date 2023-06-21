@@ -15,10 +15,24 @@ function BlogSidebar() {
             <h3 className="blog-sidebar-title">Socials</h3>
 
             <div className="blog-sidebar-socials">
-                <a className="blog-sidebar-social" href='www.example.com'>github</a>
-                <a className="blog-sidebar-social" href='www.example.com'>linkedin</a>
-                <a className="blog-sidebar-social" href='www.example.com'>facebook</a>
-                <a className="blog-sidebar-social" href='www.example.com'>twitter</a>
+                <a className="blog-sidebar-social" href='www.example.com'>
+                    <i className="bi bi-github"></i>
+                </a>
+                <a className="blog-sidebar-social" href='www.example.com'>
+                    <i className="bi bi-linkedin"></i>
+                </a>
+                <a className="blog-sidebar-social" href='www.example.com'>
+                    <i className="bi bi-instagram"></i>
+                </a>
+                <a className="blog-sidebar-social" href='www.example.com'>
+                    <i className="bi bi-twitter"></i>
+                </a>
+                <a className="blog-sidebar-social" href='www.example.com'>
+                    <i className="bi bi-twitch"></i>
+                </a>
+                <a className="blog-sidebar-social" href='www.example.com'>
+                    <i className="bi bi-youtube"></i>
+                </a>
             </div>
         </div>
     );

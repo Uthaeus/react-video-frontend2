@@ -33,7 +33,7 @@ function Homepage() {
 
         <div className="homepage-header">
           <h1 className="homepage-title">Welcome, check out some videos</h1>
-          <p className="homepage-subtitle">“It is hard to fail but it is worse never to have tried to succeed.” —Theodore Roosevelt</p>
+          
           {user && (
             <>
               <h3 className="homepage-hello">Hello, <Link to={`/userpage`} className="homepage-username-link">{user.username}</Link></h3>
