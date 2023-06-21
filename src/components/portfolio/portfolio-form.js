@@ -37,8 +37,10 @@ function PortfolioForm({ portfolio }) {
             </div>
 
             <div className="form-group mb-2">
-                <button type="submit" className="btn btn-primary">Save</button>
+                <button type="submit" className="portfolio-form-btn">{portfolio ? 'Update' : 'Save'}</button>
             </div>
         </form>
     );
 }
+
+export default PortfolioForm;
