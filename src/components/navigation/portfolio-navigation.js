@@ -1,10 +1,12 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import { UserContext } from "../../store/user-context";
+import { set } from "react-hook-form";
 
 function PortfolioNavigation() {
     const { user, logoutUser } = useContext(UserContext);
+    const [navOpen, setNavOpen] = useState(false);
 
     let navUser = user ? user.username : 'Guest User';
 
@@ -24,8 +26,25 @@ function PortfolioNavigation() {
         .catch(error => console.log('portfolio logout error', error));
     }
 
+    function navToggleHandler() {
+        let element = document.querySelector('.portfolio-navigation');
+        if (!navOpen) {
+            element.classList.add('show-nav');
+            setTimeout(() => {
+                element.classList.remove('hide-nav');
+            }, 500);
+        } else {
+            element.classList.add('hide-nav');
+            setTimeout(() => {
+                element.classList.remove('show-nav');
+            }, 500);
+        }
+
+        setNavOpen(!navOpen);
+    }
+
     return (
-        <div className="portfolio-navigation">
+        <div className="portfolio-navigation hide-nav">
             <div className="portfolio-navigation-content">
                 <div className="portfolio-navigation-socials">
                     <a href='example.com' className='portfolio-social-link'>Facebook</a>
@@ -42,6 +61,8 @@ function PortfolioNavigation() {
                     <NavLink to="/about" className={({isActive}) => isActive ? 'portfolio-link link-active' : 'portfolio-link'}>About</NavLink>
 
                     <NavLink to="/contact" className={({isActive}) => isActive ? 'portfolio-link link-active' : 'portfolio-link'}>Contact</NavLink>
+
+                    <NavLink to="/portfolio" className={({isActive}) => isActive ? 'portfolio-link link-active' : 'portfolio-link'}>Portfolio</NavLink>
 
                     <NavLink to="/blogs" className={({isActive}) => isActive ? 'portfolio-link link-active' : 'portfolio-link'}>Blogs</NavLink>
                 </div>
@@ -61,7 +82,9 @@ function PortfolioNavigation() {
 
             <div className="portfolio-navigation-lead">
                 <p className="portfolio-navigation-lead__text">{navUser}</p>
-                <p>v</p>
+                <p className="portfolio-navigation-lead__toggle" onClick={navToggleHandler}>
+                    {navOpen ? '^' : 'v'}
+                </p>
             </div>
         </div>
     );
