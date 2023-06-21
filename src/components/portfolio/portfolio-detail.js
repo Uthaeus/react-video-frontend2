@@ -11,7 +11,7 @@ function PortfolioDetail() {
     const [portfolio, setPortfolio] = useState(null);
 
     useEffect(() => {
-        fetch(`http://localhost:4000/portfolio/${id}`)
+        fetch(`http://localhost:4000/portfolio_items/${id}`)
         .then(response => response.json())
         .then(data => setPortfolio(data))
         .catch(error => console.log('portfolio detail error', error));
@@ -33,18 +33,11 @@ function PortfolioDetail() {
         .catch(error => console.log('portfolio delete error', error));
     }
 
+    if (!portfolio) return (<div className="loading">Loading...</div>);
+
     return (
         <div className="portfolio-detail">
-            <div className="portfolio-detail-header">
-                <Link to="/portfolio" className="portfolio-detail-link back">Back To Portfolio</Link>
-
-                {user?.role === 'site_admin' && (
-                    <>
-                        <Link to={`/portfolio/${id}/edit`} className="portfolio-detail-link edit">Edit</Link>
-                        <Link to="#" onClick={deleteHandler} className="portfolio-detail-link delete">Delete</Link>
-                    </>
-                )}
-            </div>
+            
 
             <div className="portfolio-detail-body">
                 <div className="portfolio-detail-image">
@@ -60,6 +53,17 @@ function PortfolioDetail() {
                 <div className="portfolio-detail-comments-wrapper">
                     comments here 
                 </div>
+            </div>
+
+            <div className="portfolio-detail-header">
+                <Link to="/portfolio" className="portfolio-detail-link back">Back To Portfolio</Link>
+
+                {user?.role === 'site_admin' && (
+                    <>
+                        <Link to={`/portfolio/${id}/edit`} className="portfolio-detail-link edit">Edit</Link>
+                        <Link to="#" onClick={deleteHandler} className="portfolio-detail-link delete">Delete</Link>
+                    </>
+                )}
             </div>
         </div>
     );

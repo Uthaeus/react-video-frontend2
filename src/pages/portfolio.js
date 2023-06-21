@@ -1,11 +1,20 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 
 import { UserContext } from '../store/user-context';
+import PortfolioItem from '../components/portfolio/portfolio-item';
 
 function Portfolio() {
+    const [portfolioItems, setPortfolioItems] = useState([]);
     const { user } = useContext(UserContext);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        fetch('http://localhost:4000/portfolio_items')
+        .then(response => response.json())
+        .then(data => setPortfolioItems(data))
+        .catch(error => console.log('portfolio error', error));
+    }, []);
 
     return (
         <div className="portfolio-container">
@@ -16,7 +25,7 @@ function Portfolio() {
             </div>
 
             <div className="portfolio-body">
-                items here 
+                {portfolioItems.map(portfolio => <PortfolioItem key={portfolio.id} portfolio={portfolio} />)} 
             </div>
 
             <div className="portfolio-footer">
