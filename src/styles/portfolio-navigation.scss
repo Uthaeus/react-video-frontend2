@@ -4,6 +4,7 @@
     background-color: $light-blue;
     border-bottom: 1px solid $dark-blue;
     transition: all 0.5s ease-in-out;
+    margin-top: -150px;
 
     .portfolio-navigation-content {
         width: 100%;
@@ -89,10 +90,10 @@
     }
 }
 
-.hide-nav {
-    transform: translateY(-75%);
-}
+// .hide-nav {
+//     transform: translateY(-75%);
+// }
 
 .show-nav {
-    transform: translateY(0);
+    transform: translateY(150px);
 }

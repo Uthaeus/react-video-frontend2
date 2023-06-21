@@ -27,24 +27,18 @@ function PortfolioNavigation() {
     }
 
     function navToggleHandler() {
-        let element = document.querySelector('.portfolio-navigation');
+        let element = document.querySelector('.portfolio-layout');
         if (!navOpen) {
             element.classList.add('show-nav');
-            setTimeout(() => {
-                element.classList.remove('hide-nav');
-            }, 500);
         } else {
-            element.classList.add('hide-nav');
-            setTimeout(() => {
-                element.classList.remove('show-nav');
-            }, 500);
+            element.classList.remove('show-nav');
         }
 
         setNavOpen(!navOpen);
     }
 
     return (
-        <div className="portfolio-navigation hide-nav">
+        <div className="portfolio-navigation">
             <div className="portfolio-navigation-content">
                 <div className="portfolio-navigation-socials">
                     <a href='example.com' className='portfolio-social-link'>Facebook</a>
