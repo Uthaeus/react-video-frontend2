@@ -6,6 +6,7 @@ function BlogSidebar() {
             <h3 className="blog-sidebar-title">Categories</h3>
 
             <div className="blog-sidebar-categories">
+                <p className="blog-sidebar-category">all</p>
                 <p className="blog-sidebar-category">javascript</p>
                 <p className="blog-sidebar-category">react</p>
                 <p className="blog-sidebar-category">ruby</p>

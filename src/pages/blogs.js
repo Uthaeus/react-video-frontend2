@@ -24,11 +24,9 @@ function Blogs() {
                 setBlogs(data);
                 setFeaturedBlog(data[randomIndex]);
                 setIsLoading(false);
-            });
+            })
+            .catch(error => console.log('Error fetching blogs: ', error));
     }, []);
-
-    // q: how can i include a copyright symbol?
-    // a: use the unicode character: \u00A9
 
     if (isLoading) {
         return (
