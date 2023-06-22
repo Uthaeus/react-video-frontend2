@@ -20,7 +20,7 @@ function Portfolio() {
         <div className="portfolio-container">
             <div className="portfolio-header">
                 <h1 className="portfolio-title">My Portfolio</h1>
-                <p className="portfolio-subtitle">some quote or something here ....</p>
+                <p className="portfolio-subtitle">"It's never too late to be what you might've been." ―George Eliot.</p>
                 {user?.role === 'site_admin' && <button onClick={() => navigate('/portfolio/new')} className="portfolio-button">Add Project</button>}
             </div>
 

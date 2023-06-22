@@ -84,6 +84,7 @@
             transition: all 0.3s ease-in-out;
 
             &:hover {
+                cursor: pointer;
                 color: $dark-blue;
                 transform: scale(1.1);
             }
@@ -165,6 +166,8 @@
         .portfolio-detail-image {
             width: 90%;
             margin: 1rem auto;
+            display: flex;
+            flex-direction: column;
         }
 
         .portfolio-detail-content {
