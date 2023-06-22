@@ -3,6 +3,8 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
 import { UserContext } from "../../store/user-context";
+import PortfolioCommentForm from "./portfolio-comment-form";
+import PortfolioCommentItem from "./portfolio-comment-item";
 
 function PortfolioDetail() {
     const { user } = useContext(UserContext);
@@ -36,6 +38,8 @@ function PortfolioDetail() {
         })
         .catch(error => console.log('portfolio delete error', error));
     }
+
+    function addCommentHandler(comment) {}
 
     if (!portfolio) return (<div className="loading">Loading...</div>);
 
@@ -79,7 +83,11 @@ function PortfolioDetail() {
             </div>
 
             <div className="portfolio-detail-comments-wrapper">
-                comments here 
+                <PortfolioCommentForm portfolioId={id} user={user} addCommentHandler={addCommentHandler} />
+
+                comments: 
+
+                {portfolio.comments.map(comment => <PortfolioCommentItem key={comment.id} comment={comment} />)}
             </div>
 
             
