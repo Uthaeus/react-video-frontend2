@@ -11,6 +11,7 @@ function PortfolioDetail() {
     const navigate = useNavigate();
     const { id } = useParams();
     const [portfolio, setPortfolio] = useState(null);
+    const [comments, setComments] = useState([]);
     const [technologies, setTechnologies] = useState([]);
 
     useEffect(() => {
@@ -18,6 +19,7 @@ function PortfolioDetail() {
         .then(response => response.json())
         .then(data => {
             setPortfolio(data);
+            setComments(data.portfolio_comments);
             setTechnologies(data.technologies);
         })
         .catch(error => console.log('portfolio detail error', error));
@@ -39,7 +41,9 @@ function PortfolioDetail() {
         .catch(error => console.log('portfolio delete error', error));
     }
 
-    function addCommentHandler(comment) {}
+    function addCommentHandler(comment) {
+        setComments([comment, ...comments]);
+    }
 
     if (!portfolio) return (<div className="loading">Loading...</div>);
 
@@ -87,7 +91,7 @@ function PortfolioDetail() {
 
                 <p className="comments-wrapper-title">comments:</p>
 
-                {portfolio.comments.map(comment => <PortfolioCommentItem key={comment.id} comment={comment} />)}
+                {comments.map(comment => <PortfolioCommentItem key={comment.id} comment={comment} />)}
             </div>
 
             

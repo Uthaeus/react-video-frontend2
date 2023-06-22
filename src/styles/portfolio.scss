@@ -292,23 +292,28 @@
 // Portfolio Comment Item
 
 .portfolio-comment-item {
-    width: 80%;
+    align-self: flex-end;
+    width: 90%;
     min-height: 100px;
     margin: 0.25rem 0;
-    padding: 1rem;
+    padding: 0 1rem;
+    padding-top: 1rem;
     border-radius: 6px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+    background-color: $white3;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 
     .comment__text {
-        font-size: 1.1rem;
         color: $black3;
     }
 
     .comment__author {
         font-size: 0.9rem;
         color: $grey3;
+        text-align: right;
+        margin-bottom: -0.25rem;
     }
 }
 

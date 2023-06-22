@@ -5,7 +5,7 @@ function PortfolioCommentItem({comment}) {
   return (
     <div className="portfolio-comment-item">
       <div className="comment__text">
-        {comment.text}
+        {comment.content}
       </div>
 
       <div className="comment__author">

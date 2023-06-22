@@ -34,7 +34,7 @@ function PortfolioCommentForm({ portfolioId, user, addCommentHandler }) {
 
     return (
         <form onSubmit={handleSubmit(submitHandler)} className="portfolio-comment-form">
-            <div className="form-group">
+            <div className="form-group mb-2">
                 <label htmlFor="text">Comment</label>
                 <textarea className="form-control" {...register('content', { required: true })} />
                 {errors?.content && <span className="error">Comment is required</span>}
