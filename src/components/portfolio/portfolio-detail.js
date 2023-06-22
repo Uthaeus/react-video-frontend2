@@ -85,7 +85,7 @@ function PortfolioDetail() {
             <div className="portfolio-detail-comments-wrapper">
                 <PortfolioCommentForm portfolioId={id} user={user} addCommentHandler={addCommentHandler} />
 
-                comments: 
+                <p className="comments-wrapper-title">comments:</p>
 
                 {portfolio.comments.map(comment => <PortfolioCommentItem key={comment.id} comment={comment} />)}
             </div>

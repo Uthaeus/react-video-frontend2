@@ -217,13 +217,21 @@
                 color: $white3;
             }
         }
+    }
 
-        .portfolio-detail-comments-wrapper {
-            width: 90%;
-            margin: 1rem auto;
-            padding: 1rem;
-            display: flex;
-            flex-direction: column;
+    .portfolio-detail-comments-wrapper {
+        width: 90%;
+        margin: 2rem auto;
+        display: flex;
+        flex-direction: column;
+
+        .comments-wrapper-title {
+            width: 30%;
+            padding: 0.25rem 0;
+            margin-bottom: 0.5rem;
+            font-size: 1.1em;
+            color: $blog-blue;
+            border-bottom: 1px solid $black3;
         }
     }
 }
@@ -277,6 +285,52 @@
         .cancel {
             background-color: $blog-dark-blue;
             color: $blog-white;
+        }
+    }
+}
+
+// Portfolio Comment Item
+
+.portfolio-comment-item {
+    width: 80%;
+    min-height: 100px;
+    margin: 0.25rem 0;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+
+    .comment__text {
+        font-size: 1.1rem;
+        color: $black3;
+    }
+
+    .comment__author {
+        font-size: 0.9rem;
+        color: $grey3;
+    }
+}
+
+// Portfolio Comment Form
+
+.portfolio-comment-form {
+    width: 100%;
+    padding: 1rem;
+
+    .comment-btn {
+        font-size: 0.8em;
+        padding: 0 3rem;
+        background-color: $blog-dark-blue;
+        color: $white3;
+        border-radius: 3px;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            filter: brightness(1.2);
+            transform: scale(1.02);
+            box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
         }
     }
 }

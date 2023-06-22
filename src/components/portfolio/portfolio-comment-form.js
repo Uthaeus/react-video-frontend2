@@ -41,7 +41,7 @@ function PortfolioCommentForm({ portfolioId, user, addCommentHandler }) {
             </div>
 
             <div className="form-group">
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className="comment-btn">Submit</button>
             </div>
         </form>
     );
