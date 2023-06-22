@@ -1,8 +1,7 @@
 
 .portfolio-navigation {
     width: 100%;
-    background-color: $light-blue;
-    border-bottom: 1px solid $dark-blue;
+    background-color: $black3;
     transition: all 0.5s ease-in-out;
     margin-top: -150px;
 
@@ -17,13 +16,13 @@
             align-items: center;
 
             .portfolio-social-link {
-                margin: 0 10px;
-                font-size: 1.5rem;
-                color: $dark-blue;
+                margin: 0 15px;
+                font-size: 1.8rem;
+                color: $blue;
                 transition: all 0.3s ease-in-out;
 
                 &:hover {
-                    color: $sienna;
+                    color: $dark-grey3;
                     transform: scale(1.2);
                 }
             }
@@ -48,7 +47,7 @@
     .portfolio-link {
         font-size: 0.9em;
         padding: 0.25rem 0.5rem;
-        color: $dark-blue;
+        color: $tan3;
         text-decoration: none;
         transition: all 0.3s ease-in-out;
 
@@ -59,31 +58,34 @@
     }
 
     .link-active {
-        color: $sienna;
+        color: $white3;
         transform: scale(1.2);
-        border-bottom: 1px solid $sienna;
+        border-bottom: 1px solid $white3;
     }
 
     .portfolio-navigation-lead {
         width: 100%;
+        height: 40px;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
-        margin-bottom: -0.5rem;
+        
 
         .portfolio-navigation-lead__text {
             font-size: 1.5rem;
-            color: $dark-blue;
+            color: $dark-grey3;
+            margin-bottom: -0.01rem;
         }
 
         .portfolio-navigation-lead__toggle {
-            font-size: 1.5rem;
-            color: $dark-blue;
+            font-size: 1.7rem;
+            color: $grey3;
             transition: all 0.3s ease-in-out;
+            margin-bottom: -0.25rem;
 
             &:hover {
                 cursor: pointer;
-                color: $sienna;
+                color: $dark-grey3;
                 transform: scale(1.2);
             }
         }

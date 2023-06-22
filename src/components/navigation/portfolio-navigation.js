@@ -41,12 +41,24 @@ function PortfolioNavigation() {
         <div className="portfolio-navigation">
             <div className="portfolio-navigation-content">
                 <div className="portfolio-navigation-socials">
-                    <a href='example.com' className='portfolio-social-link'>Facebook</a>
-                    <a href='example.com' className='portfolio-social-link'>Twitter</a>
-                    <a href='example.com' className='portfolio-social-link'>Instagram</a>
-                    <a href='example.com' className='portfolio-social-link'>LinkedIn</a>
-                    <a href='example.com' className='portfolio-social-link'>GitHub</a>
-                    <a href='example.com' className='portfolio-social-link'>YouTube</a> 
+                    <a href='example.com' className='portfolio-social-link'>
+                        <i className="bi bi-facebook"></i>
+                    </a>
+                    <a href='example.com' className='portfolio-social-link'>
+                        <i className="bi bi-twitter"></i>
+                    </a>
+                    <a href='example.com' className='portfolio-social-link'>
+                        <i className="bi bi-instagram"></i>    
+                    </a>
+                    <a href='example.com' className='portfolio-social-link'>
+                        <i className="bi bi-linkedin"></i>
+                    </a>
+                    <a href='example.com' className='portfolio-social-link'>
+                        <i className="bi bi-github"></i>
+                    </a>
+                    <a href='example.com' className='portfolio-social-link'>
+                        <i className="bi bi-youtube"></i>    
+                    </a> 
                 </div>
 
                 <div className="portfolio-navigation__links">
@@ -77,7 +89,7 @@ function PortfolioNavigation() {
             <div className="portfolio-navigation-lead">
                 <p className="portfolio-navigation-lead__text">{navUser}</p>
                 <p className="portfolio-navigation-lead__toggle" onClick={navToggleHandler}>
-                    {navOpen ? '^' : 'v'}
+                    {navOpen ? <i className="bi bi-caret-up-fill"></i> : <i className="bi bi-list"></i>}
                 </p>
             </div>
         </div>
