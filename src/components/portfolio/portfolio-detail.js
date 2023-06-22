@@ -9,11 +9,15 @@ function PortfolioDetail() {
     const navigate = useNavigate();
     const { id } = useParams();
     const [portfolio, setPortfolio] = useState(null);
+    const [technologies, setTechnologies] = useState([]);
 
     useEffect(() => {
         fetch(`http://localhost:4000/portfolio_items/${id}`)
         .then(response => response.json())
-        .then(data => setPortfolio(data))
+        .then(data => {
+            setPortfolio(data);
+            setTechnologies(data.technologies);
+        })
         .catch(error => console.log('portfolio detail error', error));
     }, [id]);
 
@@ -42,6 +46,12 @@ function PortfolioDetail() {
             <div className="portfolio-detail-body">
                 <div className="portfolio-detail-image">
                     <img src={`http://localhost:4000${portfolio.main_image?.url}`} alt={portfolio.title} width="100%" />
+                    {technologies.length > 0 && (
+                        <div className="portfolio-detail-technologies">
+                            <p className="detail-technologies-title">technologies used:</p>
+                            {technologies.map(technology => <span key={technology.id} className="portfolio-detail-technology">{technology.name}</span>)}
+                        </div>
+                    )}
                 </div>
 
                 <div className="portfolio-detail-content">
