@@ -119,10 +119,10 @@
         border-top: 1px solid $black3;
 
         .portfolio-detail-link {
-            width: 15%;
+            width: 20%;
             text-align: center;
-            font-size: 1.1em;
-            color: $tan3;
+            font-size: 0.9em;
+            color: $white3;
             transition: all 0.3s ease-in-out;
             text-decoration: none;
             margin-left: 1rem;
@@ -144,7 +144,7 @@
         }
 
         .back {
-            background-color: #53757E;
+            background-color: #2E4F58;
 
             &:hover {
                 background-color: #1d35575b;
@@ -205,7 +205,7 @@
                 text-align: right;
                 font-size: 2.5rem;
                 font-weight: 700;
-                color: $tan3;
+                color: $blog-light-blue;
                 padding: 1rem 0;
                 border-bottom: 1px solid $black3;
             }
@@ -215,6 +215,7 @@
                 padding: 1rem;
                 font-weight: 400;
                 color: $white3;
+                font-size: 1.1rem;
             }
         }
     }
@@ -324,6 +325,7 @@
     padding: 1rem;
 
     .comment-btn {
+        float: right;
         font-size: 0.8em;
         padding: 0 3rem;
         background-color: $blog-dark-blue;
