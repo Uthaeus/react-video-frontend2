@@ -47,8 +47,6 @@ function PortfolioDetail() {
 
     if (!portfolio) return (<div className="loading">Loading...</div>);
 
-    console.log('portfolio', portfolio);
-
     return (
         <div className="portfolio-detail">
             

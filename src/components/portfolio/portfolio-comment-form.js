@@ -4,17 +4,14 @@ function PortfolioCommentForm({ portfolioId, user, addCommentHandler }) {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
     function submitHandler(data) {
-        console.log('comment data', data);
         let comment = {
             portfolio_comment: {
                 content: data.content,
                 portfolio_item_id: portfolioId,
+                author: user ? user.username : 'Anonymous',
+                user_id: user ? user.id : null
             }
         };
-
-        if (user) {
-            comment.portfolio_comment.user_id = user.id;
-        }
 
         fetch('http://localhost:4000/portfolio_comments', {
             method: 'POST',
@@ -25,7 +22,6 @@ function PortfolioCommentForm({ portfolioId, user, addCommentHandler }) {
         })
         .then(response => response.json())
         .then(data => {
-            console.log('comment added', data);
             addCommentHandler(data);
             reset();
         })

@@ -9,12 +9,10 @@ function PortfolioItem({ portfolio }) {
             </div>
 
             <div className="portfolio-item-body">
-                <img className="portfolio-item-image" src={`http://localhost:4000${portfolio.thumb_image.url}`} alt={portfolio.title} width='100%' />
+                <img className="portfolio-item-image" src={`http://localhost:4000${portfolio.thumb_image.url}`} alt={portfolio.title} width='100%' height='200px' />
             </div>
 
             <div className="portfolio-item-footer">
-                {/* <p className="portfolio-item-technologies">{portfolio.technologies}</p>
-                <p className="portfolio-item-links">{portfolio.links}</p> */}
                 item footer
             </div>
         </div>

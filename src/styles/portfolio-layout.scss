@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
 @import 'portfolio-navigation';
 
 @import 'portfolio';
@@ -6,5 +8,7 @@
     width: 100%;
     min-height: 120vh;
     background-color: $dark-grey3;
+    color: $grey3;
     transition: all 0.5s ease-in-out;
+    font-family: 'Lora', serif;
 }

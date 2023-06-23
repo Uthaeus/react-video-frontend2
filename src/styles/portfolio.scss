@@ -4,7 +4,7 @@
 
     .portfolio-header {
         width: 60%;
-        margin: 2rem auto;
+        margin: 0 auto;
         text-align: center;
 
         .portfolio-title {
@@ -22,7 +22,7 @@
         .portfolio-button {
             padding: 0 2rem;
             border-radius: 3px;
-            background-color: $blue2;
+            background-color: $dark-blue;
             color: $blog-white;
             box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
             transition: all 0.3s ease-in-out;
@@ -70,8 +70,7 @@
 .portfolio-item {
     width: 90%;
     margin: 1rem auto;
-    padding: 2rem 1rem;
-    border-bottom: 1px solid $brown2;
+    border-bottom: 1px solid $blog-light-blue;
 
     .portfolio-item-header {
         width: 100%;
@@ -79,7 +78,7 @@
         .portfolio-item-title {
             font-size: 2.2rem;
             font-weight: 700;
-            color: $tan3;
+            color: $blog-blue;
             text-decoration: none;
             transition: all 0.3s ease-in-out;
 
@@ -97,8 +96,10 @@
 
     .portfolio-item-footer {
         width: 100%;
-        padding: 0 1rem;
+        text-align: right;
+        padding: 0.25rem 1rem;
         font-size: 0.8em;
+        color: $light-tan;
     }
 }
 
