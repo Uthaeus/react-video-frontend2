@@ -62,7 +62,7 @@ function Blogs() {
                 </div>
 
                 <div className="blogs-sidebar">
-                    <BlogSidebar />
+                    <BlogSidebar user={user} />
                 </div>
             </div>
 

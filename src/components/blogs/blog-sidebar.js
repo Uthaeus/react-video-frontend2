@@ -1,8 +1,13 @@
 
-function BlogSidebar() {
+import BlogCategoryForm from "./blog-category-form";
+
+function BlogSidebar({ user }) {
+
+    function addCategoryHandler(cat) {}
 
     return (
         <div className="blog-sidebar">
+
             <h3 className="blog-sidebar-title">Categories</h3>
 
             <div className="blog-sidebar-categories">

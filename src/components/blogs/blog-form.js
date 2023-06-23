@@ -1,9 +1,10 @@
 import { useForm } from "react-hook-form";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 
 function BlogForm({ blog }) {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const [categories, setCategories] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -11,6 +12,16 @@ function BlogForm({ blog }) {
             reset(blog);
         }
     }, [blog, reset]);
+
+    useEffect(() => {
+        fetch('http://localhost:4000/categories')
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
+                setCategories(data);
+            }); 
+    }, []);
 
     function buildForm(data) {
         const formData = new FormData();
@@ -58,12 +69,16 @@ function BlogForm({ blog }) {
                 {errors?.body && <span className="error">Body is required</span>}
             </div>
 
-            {/* <div className="form-group">
+            <div className="form-group">
                 <label htmlFor="category">Category</label>
                 <select className="form-control" {...register('category', { required: true })}>
                     <option value="">Select a category</option>
+                    {categories.map(category => {
+                        return <option key={category.id} value={category.name}>{category.name}</option>
+                    })}
                 </select>
-            </div> */}
+                {errors?.category && <span className="error">Category is required</span>}
+            </div>
 
             <div className="form-group mb-3">
                 <label htmlFor="image">Image</label>
