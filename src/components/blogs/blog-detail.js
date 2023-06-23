@@ -2,9 +2,12 @@ import { useState, useEffect, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 
 import { UserContext } from "../../store/user-context";
+import BlogCommentForm from "./blog-comment-form";
+import BlogCommentItem from "./blog-comment-item";
 
 function BlogDetail() {
     const [blog, setBlog] = useState(null);
+    const [comments, setComments] = useState([]);
     const { id } = useParams();
     const { user } = useContext(UserContext);
 
@@ -15,8 +18,13 @@ function BlogDetail() {
             })
             .then(data => {
                 setBlog(data);
+                setComments(data.comments);
             });
     }, [id]);
+
+    function addCommentHandler(comment) {
+        setComments([comment, ...comments]);
+    }
 
     if (!blog) {
         return (
@@ -62,7 +70,11 @@ function BlogDetail() {
                     <img className="blog-detail-image" src={`http://localhost:4000${blog.image.url}`} alt={blog.title} width='90%' />
 
                     <div className="blog-detail-comments">
+                        <BlogCommentForm user={user} blogId={blog.id} addCommentHandler={addCommentHandler} />
+
                         <h3 className="blog-detail-comments-title">Comments</h3>
+
+                        {comments.map(comment => <BlogCommentItem key={comment.id} comment={comment} />)}
                     </div>
                 </div>
             </div>
