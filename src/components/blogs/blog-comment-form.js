@@ -1,11 +1,39 @@
 import { useForm } from "react-hook-form";
 
-function BlogCommentForm({ user }) {
+function BlogCommentForm({ user, blogId, addCommentHandler }) {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
     function submitHandler(data) {
         console.log(data);
-        reset();
+
+        let dataToSubmit = {
+            blog_comment: {
+                content: data.content,
+                blog_id: blogId,
+                author: user ? user.username : 'Anonymous',
+                user_id: user ? user.id : null
+            }
+        };
+
+        fetch('http://localhost:4000/blog_comments', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(dataToSubmit),
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+        })
+        .then(data => {
+            console.log('blog comment data', data);
+            addCommentHandler(data);
+            reset();
+        })
+        .catch((error) => console.log('blog comment error', error));
+        
     }
 
     return (

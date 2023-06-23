@@ -1,11 +1,9 @@
 
 .blogs-container {
     width: 100%;
-    min-height: calc(100vh - 60px);
     padding: 0 1rem;
     display: flex;
     flex-direction: column;
-    position: relative;
 
     .blogs-header {
         width: 80%;
@@ -75,39 +73,7 @@
         }
     }
 
-    .blogs-footer {
-        width: 100%;
-        padding: 1rem;
-        position: absolute;
-        bottom: 0;
-        text-align: center;
-
-        .blogs-footer-text {
-            font-size: 0.9rem;
-            color: $blog-dark-blue;
-        }
-
-        .footer-link {
-            margin: 0 0.5rem;
-            color: $blog-blue;
-            transition: all 0.3s ease-in-out;
-
-            &:hover {
-                color: $blog-light-blue;
-                transform: scale(1.1);
-            }
-        }
-
-        .back-to-top {
-            margin-left: 3rem;
-            transition: all 0.3s ease-in-out;
-
-            &:hover {
-                color: $blue;
-                transform: scale(1.1);
-            }
-        }
-    }
+    
 }
 
 // Blog Sidebar 
@@ -324,9 +290,12 @@
                 width: 100%;
                 margin-top: 1rem;
                 padding: 1rem;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
 
                 .blog-detail-comments-title {
-                    font-size: 1.5em;
+                    font-size: 1.3em;
                     color: $blog-blue;
                     margin-bottom: 0.5rem;
                 }
@@ -336,15 +305,16 @@
 }
 
 .blog-comment-item {
-    width: 85%;
-    align-self: flex-end;
+    width: 90%;
+    min-height: 90px;
     margin: 0.3rem 0;
     padding: 0 1rem;
     border-radius: 4px;
-    background-color: $light-blue;
+    background-color: white;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 
     .blog-comment-item-text {
         font-size: 1.1em;
@@ -353,14 +323,14 @@
 
     .blog-comment-item-author {
         font-size: 0.9em;
-        color: $blog-blue;
+        color: $light-green2;
         margin-bottom: -0.3rem;
+        text-align: right;
     }
 }
 
 .blog-comment-form {
     width: 100%;
-    margin: 1rem 0;
     padding: 1rem;
 
     .blog-comment-btn {

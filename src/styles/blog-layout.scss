@@ -5,7 +5,42 @@
 
 .blog-layout-container {
     width: 100%;
-    min-height: calc(100vh - 10px);
+    min-height: 100vh;
     margin: 0;
     background-color: $blog-white;
+    position: relative;
+}
+
+.blogs-footer {
+    width: 100%;
+    padding: 1rem;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+
+    .blogs-footer-text {
+        font-size: 0.9rem;
+        color: $blog-dark-blue;
+    }
+
+    .footer-link {
+        margin: 0 0.5rem;
+        color: $blog-blue;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            color: $blog-light-blue;
+            transform: scale(1.1);
+        }
+    }
+
+    .back-to-top {
+        margin-left: 3rem;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            color: $blue;
+            transform: scale(1.1);
+        }
+    }
 }

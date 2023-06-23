@@ -18,7 +18,7 @@ function BlogDetail() {
             })
             .then(data => {
                 setBlog(data);
-                setComments(data.comments);
+                setComments(data.blog_comments);
             });
     }, [id]);
 
@@ -72,7 +72,7 @@ function BlogDetail() {
                     <div className="blog-detail-comments">
                         <BlogCommentForm user={user} blogId={blog.id} addCommentHandler={addCommentHandler} />
 
-                        <h3 className="blog-detail-comments-title">Comments</h3>
+                        <h3 className="blog-detail-comments-title">comments</h3>
 
                         {comments.map(comment => <BlogCommentItem key={comment.id} comment={comment} />)}
                     </div>
