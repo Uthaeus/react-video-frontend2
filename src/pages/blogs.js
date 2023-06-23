@@ -8,6 +8,7 @@ import FeaturedBlogItem from '../components/blogs/featured-blog-item';
 
 function Blogs() {
     const [blogs, setBlogs] = useState([]);
+    const [displayedBlogs, setDisplayedBlogs] = useState([]);
     const [featuredBlog, setFeaturedBlog] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const { user } = useContext(UserContext);
@@ -22,11 +23,21 @@ function Blogs() {
             .then(data => {
                 let randomIndex = Math.floor(Math.random() * data.length);
                 setBlogs(data);
+                setDisplayedBlogs(data);
                 setFeaturedBlog(data[randomIndex]);
                 setIsLoading(false);
             })
             .catch(error => console.log('Error fetching blogs: ', error));
     }, []);
+
+    function blogFilterHandler(category) {
+        if (category === 'all') {
+            setDisplayedBlogs(blogs);
+        } else {
+            let filteredBlogs = blogs.filter(blog => blog.category === category);
+            setDisplayedBlogs(filteredBlogs);
+        }
+    }
 
     if (isLoading) {
         return (
@@ -56,13 +67,13 @@ function Blogs() {
                     
                     <hr />
 
-                    {blogs.map(blog => (
+                    {displayedBlogs.map(blog => (
                         <BlogItem key={blog.id} blog={blog} />
                     ))}
                 </div>
 
                 <div className="blogs-sidebar">
-                    <BlogSidebar user={user} />
+                    <BlogSidebar user={user} blogFilterHandler={blogFilterHandler} />
                 </div>
             </div>
 

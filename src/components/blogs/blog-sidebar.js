@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import BlogCategoryForm from "./blog-category-form";
 
-function BlogSidebar({ user }) {
+function BlogSidebar({ user, blogFilterHandler }) {
     const [categories, setCategories] = useState([]);
     const [showForm, setShowForm] = useState(false);    
 
@@ -44,16 +44,18 @@ function BlogSidebar({ user }) {
             )}
 
             {showForm && <BlogCategoryForm addCategoryHandler={addCategoryHandler} />}
-            
+
             <h3 className="blog-sidebar-title">Categories</h3>
 
             <div className="blog-sidebar-categories">
-                <p className="blog-sidebar-category">all</p>
+                <div className="blog-sidebar-category-wrapper">
+                    <p onClick={() => blogFilterHandler('all')} className="blog-sidebar-category">all</p>
+                </div>
                 
                 {categories.map((category) => {
                     return (
                         <div className="blog-sidebar-category-wrapper" key={category.id}>
-                            <p className="blog-sidebar-category">{category.name}</p>
+                            <p onClick={()=> blogFilterHandler(category.name)} className="blog-sidebar-category">{category.name}</p>
                             {user?.role === 'site_admin' && (
                                 <p onClick={() => categoryDeleteHandler(category.id)} className="category-delete-btn">X</p>
                             )}
