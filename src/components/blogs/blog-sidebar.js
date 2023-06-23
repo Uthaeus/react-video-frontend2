@@ -4,6 +4,7 @@ import BlogCategoryForm from "./blog-category-form";
 
 function BlogSidebar({ user }) {
     const [categories, setCategories] = useState([]);
+    const [showForm, setShowForm] = useState(false);    
 
     useEffect(() => {
         fetch('http://localhost:4000/categories')
@@ -19,12 +20,31 @@ function BlogSidebar({ user }) {
         setCategories([cat, ...categories]);
     }
 
+    function categoryDeleteHandler(id) {
+        console.log('delete');
+
+        fetch(`http://localhost:4000/categories/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('practice-token'),
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                setCategories(categories.filter((category) => category.id !== id));
+            }
+        })
+        .catch((error) => console.log('category delete error: ', error));
+    }
+
     return (
         <div className="blog-sidebar">
             {user?.role === 'site_admin' && (
-                <BlogCategoryForm addCategoryHandler={addCategoryHandler} />
+                <p onClick={() => setShowForm(!showForm)} className="add-category-toggle">{showForm ? 'close' : 'add category'}</p> 
             )}
 
+            {showForm && <BlogCategoryForm addCategoryHandler={addCategoryHandler} />}
+            
             <h3 className="blog-sidebar-title">Categories</h3>
 
             <div className="blog-sidebar-categories">
@@ -35,7 +55,7 @@ function BlogSidebar({ user }) {
                         <div className="blog-sidebar-category-wrapper" key={category.id}>
                             <p className="blog-sidebar-category">{category.name}</p>
                             {user?.role === 'site_admin' && (
-                                <p className="category-delete-btn">X</p>
+                                <p onClick={() => categoryDeleteHandler(category.id)} className="category-delete-btn">X</p>
                             )}
                         </div>
                     );
