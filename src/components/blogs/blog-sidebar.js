@@ -1,21 +1,45 @@
+import { useEffect, useState } from "react";
 
 import BlogCategoryForm from "./blog-category-form";
 
 function BlogSidebar({ user }) {
+    const [categories, setCategories] = useState([]);
 
-    function addCategoryHandler(cat) {}
+    useEffect(() => {
+        fetch('http://localhost:4000/categories')
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
+                setCategories(data);
+            });
+    }, []);
+
+    function addCategoryHandler(cat) {
+        setCategories([cat, ...categories]);
+    }
 
     return (
         <div className="blog-sidebar">
+            {user?.role === 'site_admin' && (
+                <BlogCategoryForm addCategoryHandler={addCategoryHandler} />
+            )}
 
             <h3 className="blog-sidebar-title">Categories</h3>
 
             <div className="blog-sidebar-categories">
                 <p className="blog-sidebar-category">all</p>
-                <p className="blog-sidebar-category">javascript</p>
-                <p className="blog-sidebar-category">react</p>
-                <p className="blog-sidebar-category">ruby</p>
-                <p className="blog-sidebar-category">postgresql</p>
+                
+                {categories.map((category) => {
+                    return (
+                        <div className="blog-sidebar-category-wrapper" key={category.id}>
+                            <p className="blog-sidebar-category">{category.name}</p>
+                            {user?.role === 'site_admin' && (
+                                <p className="category-delete-btn">X</p>
+                            )}
+                        </div>
+                    );
+                })}
             </div>
 
             <h3 className="blog-sidebar-title">Socials</h3>

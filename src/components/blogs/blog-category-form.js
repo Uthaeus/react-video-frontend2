@@ -16,6 +16,7 @@ function BlogCategoryForm({ addCategoryHandler }) {
             headers: {
                 'Content-Type': 'application/json',
             },
+            body: JSON.stringify(dataToSend)
         })
         .then(response => {
             return response.json();

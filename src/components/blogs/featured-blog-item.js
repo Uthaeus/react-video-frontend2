@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function FeaturedBlogItem({ blog }) {
     function truncate(str) {
-        str = str.length >= 40 ? str.substring(0, 40) : str;
+        str = str.length >= 35 ? str.substring(0, 35) : str;
         return str + '...';
     }
 
