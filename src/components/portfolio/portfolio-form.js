@@ -114,9 +114,9 @@ function PortfolioForm({ portfolio }) {
                         <input type="text" className="form-control" value={technology || ''} onChange={technologyChangeHandler} />
                         <p className="add-technology-btn" onClick={addTechnologyHandler}>Add Technology</p>
                     </div>
-                    {technologies.length > 0 && (
+                    {technologies?.length > 0 && (
                         <>
-                            {technologies.map(tech => <p key={tech.id} className="portfolio-detail-technology">{tech.name}</p>)}
+                            {technologies?.map(tech => <p key={tech.id} className="portfolio-detail-technology">{tech.name}</p>)}
                         </>
                     )}
                 </div>

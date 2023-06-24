@@ -8,7 +8,7 @@ import PortfolioCommentItem from "./portfolio-comment-item";
 
 import Calculator from "../projects/calculator/calculator";
 
-function PortfolioDetail({ project }) {
+function PortfolioDetail() {
     const { user } = useContext(UserContext);
     const navigate = useNavigate();
     const { id } = useParams();
@@ -23,12 +23,13 @@ function PortfolioDetail({ project }) {
         fetch(`http://localhost:4000/portfolio_items/${id}`)
         .then(response => response.json())
         .then(data => {
+            console.log('portfolio detail data', data);
             setPortfolio(data);
             setComments(data.portfolio_comments);
             setTechnologies(data.technologies);
         })
         .catch(error => console.log('portfolio detail error', error));
-    }, [id, project]);
+    }, [id]);
 
     function deleteHandler() {
         fetch(`http://localhost:4000/portfolio/${id}`, {
@@ -50,7 +51,7 @@ function PortfolioDetail({ project }) {
         setComments([comment, ...comments]);
     }
 
-    if (!portfolio) return (<div className="loading">Loading...</div>);
+     if (!portfolio) return (<div className="loading">Loading...</div>);
 
     return (
         <div className="portfolio-detail">
@@ -59,16 +60,14 @@ function PortfolioDetail({ project }) {
             <div className="portfolio-detail-body">
                 <div className='portfolio-detail-content-wrapper'>  
                     <div className="portfolio-detail-image">
-                        {/* <img src={`http://localhost:4000${portfolio.main_image?.url}`} alt={portfolio.title} width="100%" /> */}
+                        <img src={`http://localhost:4000${portfolio.main_image?.url}`} alt={portfolio.title} width="100%" />
 
-                        {project}
-
-                        {technologies.length > 0 && (
+                        {technologies?.length > 0 && (
                             <div className="portfolio-detail-technologies">
                                 <p className="detail-technologies-title">technologies used:</p>
 
                                 <div className="row row-cols-2">
-                                    {technologies.map(technology => <span key={technology.id} className="portfolio-detail-technology col">- {technology.name}</span>)}
+                                    {technologies?.map(technology => <span key={technology.id} className="portfolio-detail-technology col">- {technology.name}</span>)}
                                 </div>
                             </div>
                         )}
@@ -100,7 +99,7 @@ function PortfolioDetail({ project }) {
 
                 <p className="comments-wrapper-title">comments:</p>
 
-                {comments.map(comment => <PortfolioCommentItem key={comment.id} comment={comment} />)}
+                {comments?.map(comment => <PortfolioCommentItem key={comment.id} comment={comment} />)}
             </div>
 
             
