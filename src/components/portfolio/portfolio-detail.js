@@ -5,8 +5,9 @@ import { useNavigate, Link } from "react-router-dom";
 import { UserContext } from "../../store/user-context";
 import PortfolioCommentForm from "./portfolio-comment-form";
 import PortfolioCommentItem from "./portfolio-comment-item";
+import Calculator from "../calculator/calculator";
 
-function PortfolioDetail() {
+function PortfolioDetail({ project }) {
     const { user } = useContext(UserContext);
     const navigate = useNavigate();
     const { id } = useParams();
@@ -15,6 +16,7 @@ function PortfolioDetail() {
     const [technologies, setTechnologies] = useState([]);
 
     useEffect(() => {
+
         fetch(`http://localhost:4000/portfolio_items/${id}`)
         .then(response => response.json())
         .then(data => {
@@ -23,7 +25,7 @@ function PortfolioDetail() {
             setTechnologies(data.technologies);
         })
         .catch(error => console.log('portfolio detail error', error));
-    }, [id]);
+    }, [id, project]);
 
     function deleteHandler() {
         fetch(`http://localhost:4000/portfolio/${id}`, {
