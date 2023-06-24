@@ -15,6 +15,7 @@ function PortfolioDetail() {
     const [portfolio, setPortfolio] = useState(null);
     const [comments, setComments] = useState([]);
     const [technologies, setTechnologies] = useState([]);
+    const [showProject, setShowProject] = useState(false);
 
     let projectComponent = <Calculator />;
 
@@ -51,6 +52,18 @@ function PortfolioDetail() {
         setComments([comment, ...comments]);
     }
 
+    function toggleProjectHandler() {
+        let element = document.querySelector('.portfolio-detail-project-wrapper');
+
+        if (showProject) {
+            element.classList.remove('show-project-wrapper');
+        } else {
+            element.classList.add('show-project-wrapper');
+        }
+
+        setShowProject(!showProject);
+    }
+
      if (!portfolio) return (<div className="loading">Loading...</div>);
 
     return (
@@ -76,7 +89,12 @@ function PortfolioDetail() {
                     <div className="portfolio-detail-content">
                         <h1 className="portfolio-detail-title">{portfolio.title}</h1>
 
-                        
+                        <p className="portfolio-detail=project-toggle" onClick={toggleProjectHandler}>{showProject ? 'Hide Project' : 'Show Project'}</p>
+
+                        <div className="portfolio-detail-project-wrapper">
+                            {projectComponent}
+                        </div>
+
                         <p className="portfolio-detail-description">{portfolio.description}</p>
                     </div>
                 </div>

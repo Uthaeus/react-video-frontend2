@@ -198,9 +198,34 @@
         }
 
         .portfolio-detail-content {
-            padding: 2rem;
             display: flex;
             flex-direction: column;
+
+            .portfolio-detail-project-wrapper {
+                width: 100%;
+                margin: 1rem auto;
+                transition: all 0.4s ease-in-out;
+                border: 1px solid red;
+                transform: translateY(100%)
+            }
+
+            .show-project-wrapper {
+                transform: translateY(0%);
+            }
+
+            .portfolio-detail-project-toggle {
+                font-size: 0.9rem;
+                color: $white3;
+                padding: 0.5rem 1rem;
+                border-bottom: 1px solid $black3;
+                transition: all 0.3s ease-in-out;
+
+                &:hover {
+                    cursor: pointer;
+                    color: $blog-blue;
+                    transform: scale(1.1);
+                }
+            }
 
             .portfolio-detail-title {
                 text-align: right;
