@@ -12,7 +12,7 @@ function BlogUserItem({ user }) {
             </div>
 
             <div className="blog-user-item-content">
-                <img src={imageUrl} alt={user.username} width='100%' height='60px' />
+                <img src={imageUrl} alt={user.username} width='70%' height='40px' />
             </div>
         </Link>
     );

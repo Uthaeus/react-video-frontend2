@@ -34,7 +34,7 @@ function Blogs() {
         if (category === 'all') {
             setDisplayedBlogs(blogs);
         } else {
-            let filteredBlogs = blogs.filter(blog => blog.category === category);
+            let filteredBlogs = blogs.filter(blog => blog.category?.name === category);
             setDisplayedBlogs(filteredBlogs);
         }
     }

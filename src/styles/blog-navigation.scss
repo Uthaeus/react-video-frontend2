@@ -1,9 +1,8 @@
 
 .blog-navigation-container {
     width: 100%;
-    height: 75px;
     padding: 0 1rem;
-    border-bottom: 2px solid $blog-dark-blue;
+    background-color: $blog-blue;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
 
@@ -14,7 +13,7 @@
 
         .blog-navigation-title {
             font-size: 1.5em;
-            color: $blog-blue;
+            color: $blog-dark-blue;
         }
     }
 
@@ -34,7 +33,7 @@
 
     .blog-nav-link {
         font-size: 1.1em;
-        color: $blog-dark-blue;
+        color: $blog-white;
         text-decoration: none;
         margin: 0 1rem;
         padding: 0.5rem 0;
@@ -75,7 +74,7 @@
 
         .blog-user-item-username {
             font-size: 1.4em;
-            color: $blog-blue;
+            color: $blog-dark-blue;
         }
     }
 

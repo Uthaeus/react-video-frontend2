@@ -45,7 +45,7 @@ function BlogDetail() {
                             <p className="widget-item">{`blogs/${blog.id}`}</p> /
                             <Link to='/blogs' className="widget-item back-link">Back to blogs</Link> /
 
-                            <p className="widget-item">Category</p>
+                            <p className="widget-item">{blog.category?.name}</p>
                         </div>
 
                         {user?.role === 'site_admin' && (

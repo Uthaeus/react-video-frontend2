@@ -28,6 +28,7 @@ function BlogForm({ blog }) {
 
         formData.append('blog[title]', data.title);
         formData.append('blog[body]', data.body);
+        formData.append('blog[category_id]', data.category);
 
         if (data.image && data.image[0]) {
             formData.append('blog[image]', data.image[0]);
@@ -47,12 +48,15 @@ function BlogForm({ blog }) {
             }
         })
         .then(res => {
-            if (!res.ok) {
-                throw Error('Could not create blog');
+            if (res.ok) {
+                return res.json();
             }
-            navigate('/blogs');
-            return res.json();
         })
+        .then(data => {
+            console.log('Success: ', data);
+            navigate('/blogs');
+        })
+        .catch((error) => console.log('blog submit error: ', error));
     }
 
     return (
@@ -74,7 +78,7 @@ function BlogForm({ blog }) {
                 <select className="form-control" {...register('category', { required: true })}>
                     <option value="">Select a category</option>
                     {categories.map(category => {
-                        return <option key={category.id} value={category.name}>{category.name}</option>
+                        return <option key={category.id} value={category.id}>{category.name}</option>
                     })}
                 </select>
                 {errors?.category && <span className="error">Category is required</span>}
