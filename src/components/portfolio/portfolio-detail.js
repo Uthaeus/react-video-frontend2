@@ -5,7 +5,8 @@ import { useNavigate, Link } from "react-router-dom";
 import { UserContext } from "../../store/user-context";
 import PortfolioCommentForm from "./portfolio-comment-form";
 import PortfolioCommentItem from "./portfolio-comment-item";
-import Calculator from "../calculator/calculator";
+
+import Calculator from "../projects/calculator/calculator";
 
 function PortfolioDetail({ project }) {
     const { user } = useContext(UserContext);
@@ -14,6 +15,8 @@ function PortfolioDetail({ project }) {
     const [portfolio, setPortfolio] = useState(null);
     const [comments, setComments] = useState([]);
     const [technologies, setTechnologies] = useState([]);
+
+    let projectComponent = <Calculator />;
 
     useEffect(() => {
 
@@ -56,7 +59,10 @@ function PortfolioDetail({ project }) {
             <div className="portfolio-detail-body">
                 <div className='portfolio-detail-content-wrapper'>  
                     <div className="portfolio-detail-image">
-                        <img src={`http://localhost:4000${portfolio.main_image?.url}`} alt={portfolio.title} width="100%" />
+                        {/* <img src={`http://localhost:4000${portfolio.main_image?.url}`} alt={portfolio.title} width="100%" /> */}
+
+                        {project}
+
                         {technologies.length > 0 && (
                             <div className="portfolio-detail-technologies">
                                 <p className="detail-technologies-title">technologies used:</p>
@@ -71,6 +77,7 @@ function PortfolioDetail({ project }) {
                     <div className="portfolio-detail-content">
                         <h1 className="portfolio-detail-title">{portfolio.title}</h1>
 
+                        
                         <p className="portfolio-detail-description">{portfolio.description}</p>
                     </div>
                 </div>
